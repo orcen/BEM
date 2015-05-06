@@ -1,0 +1,217 @@
+// Main Navigation -- horizontal
+// ====================
+
+$background-color: $color-1;
+$text-color: $color-4;
+$nav-height: $base-line-height * 3.5;
+
+.nav_wrap{
+    background-color: $background-color;
+    @include respond-to( l ){
+        @include height( $nav-height );
+    }
+}
+
+.nav-switch{
+    background-color: $background-color;
+    color: $text-color;
+    display: block;
+    height: 0;
+    @include size(64px);
+    @include font-size( 64px );
+    @include padding( 64px, 0, 0 );
+    @include absolute(0,auto,auto,0, 10);
+    overflow: hidden;
+
+    &::before{
+        @include centerH(64px);
+        top: 0;
+    }
+
+    @include respond-from( l ) {
+        display: none;
+    }
+}
+
+.nav{
+
+    background-color: $background-color;
+    display: none;
+    list-style: inside none;
+    padding-left: 0;
+
+
+    @include absolute( $nav-height, auto, auto, 0, 100);
+    @include width(180px);
+
+    @include respond-to( md ) {
+
+        &.is-open{
+            display: block;
+        }
+    }
+
+    &-item{
+        @include padding( 0, $base-line-height, 0, 0);
+
+
+        .nav{
+            position: static;
+        }
+
+        &:hover, &:focus, &:target {
+
+            background-color: $text-color;
+
+            .nav-link{
+                color: $background-color;
+            }
+
+            .nav{
+                display: block;
+                background-color: $text-color;
+
+                .nav-link{
+                    color: $background-color;
+                    @include font-size(14px);
+                    @include padding-left(10px);
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    @include respond-from( l ) {
+        @include flexbox;
+        position: static;
+        width: auto;
+
+        &-item{
+            @include flex(1);
+            padding: 0;
+
+            &:nth-child(3){
+                @include margin( 0, 125px, 0, 0 );
+            }
+            &:nth-child(4){
+                @include margin( 0, 0, 0, 125px );
+            }
+
+
+            &.parent{
+                position: relative;
+                z-index: 1;
+            }
+
+            .nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 10;
+                min-width: 100%;
+
+                .nav-link{
+                    @include font-size(14px);
+                }
+            }
+
+            &:hover, &:focus, &:target {
+
+                background-color: $text-color;
+
+                &>.nav-link{
+                    color: $background-color;
+                }
+
+                .nav{
+                    display: block;
+
+                    &-item{
+                        display: block;
+
+                    }
+                    .nav-link{
+                        line-height: 2;
+                    }
+
+                }
+            }
+        }
+    }
+
+    &-link{
+        display: block;
+        text-decoration: none;
+        text-align: right;
+        color: $text-color;
+        line-height: $base-line-height * 1.5;
+        @include respond-from( l ){
+            line-height: $nav-height;
+            text-align: center;
+        }
+        @include font-size(18px);
+
+        span{
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        &:hover, &:focus{
+            color: $color-2;
+            @include respond-from( md ) {
+                color: $background-color;
+            }
+        }
+    }
+}
+
+
+// Mininav
+// ====================
+.mininav{
+    text-align: right;
+
+    &-link{
+        text-decoration: none;
+        display: inline-block;
+        line-height: 20px / $base-font-size;
+        color: $color-5;
+        @include margin( 5px, 0, 0, 10px);
+
+        &:hover{
+            color: $color-2;
+        }
+    }
+}
+
+// Sitemap
+// ===================
+
+.sitemap-wrap{
+    @include respond-from( md ) {
+        border-right: 1px solid $color-5;
+    }
+}
+.sitemap{
+    list-style: inside none;
+
+
+    &-item{
+        & & {
+            @include padding(0,0,0,16px);
+            list-style: inside disc;
+        }
+        & & &-link {
+                font-weight: normal;
+            }
+    }
+
+    &-link{
+        font-weight: bold;
+        color: $color-4;
+        text-decoration: none;
+    }
+
+}

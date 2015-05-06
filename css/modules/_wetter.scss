@@ -1,0 +1,52 @@
+//  Wetter Box
+//
+//
+//
+//
+//
+//
+
+.wetter{
+    @extend %spacetobottom;
+    position: relative;
+    border-left: 1px solid $color-5;
+
+    &-heading{
+        @extend .lb-heading;
+    }
+    &-text{
+        @include height($base-line-height * 4);
+    }
+    &-text2{
+        font-weight: bold;
+        @include height( $base-line-height * 3 );
+    }
+
+    &-icon{
+        @include size( $base-line-height * 4, $base-line-height * 4, null);
+        @include absolute($base-line-height * 10, auto, auto, $base-line-height);
+
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    &-info{
+        @include cf();
+        color: $color-2;
+
+    }
+        &-infoname{
+            width: 30%;
+            float: left;
+            clear: left;
+            font-weight: bold;
+        }
+        &-name, &-tempmax{
+            @include margin( 0, 0, $base-line-height);
+        }
+
+        &-infowert{
+            float: left;
+        }
+}

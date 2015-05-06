@@ -1,0 +1,45 @@
+//  Link Box
+//
+//
+//
+//
+//
+//
+
+$lines-in-text: 4;
+
+.lb{
+    @extend %spacetobottom;
+
+    &-heading{
+        @extend .article-header;
+        @include margin( 0, 0, 16px );
+        color: $color-1;
+        border-color: $color-5;
+        max-width: 100%;
+
+        span {
+            display: block;
+            font-size: 0.5em;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+    }
+
+    &-text {
+        @include height( $base-line-height * $lines-in-text );
+    }
+
+    &-image{
+        @include margin( $base-line-height, 0 );
+        text-align: center;
+    }
+
+    &-btn{
+        @extend .btn;
+
+        color: $color-1;
+        border-color: $color-1;
+    }
+
+}

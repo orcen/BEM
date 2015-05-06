@@ -1,0 +1,140 @@
+$xs: 0;
+$sm: 37.5em;
+$md: 50em;
+$l: 64em;
+$xl: 80em;
+
+$mobile: 50em;
+$tablet : 50em;
+$desktop : 50em;
+
+// Variables
+// ====================================
+    $gutter: 60px;
+    $cols: 12;
+    $list: xs sm md l xl;
+    $prefsufcols: $cols - 1; // prefix and suffix cols are 1 less
+
+// Mixins
+// ====================================
+
+@mixin generate_grid(){
+
+    @each $bp in $list { // each breakpoint
+
+
+
+        @for $i from 1 through $cols { // for each col
+
+            .grid_#{$bp}_#{$i}{
+                @extend %col;
+            }
+
+
+        }
+
+        @include respond-from( $bp ) { // responds from
+
+            .container_12 .alpha_#{$bp}{padding-left: 0;}
+            .container_12 .omega_#{$bp}{padding-right: 0;}
+
+            @for $i from 1 through $cols { // for each col
+                .container_12 .grid_#{$bp}_#{$i}{ width: ( 100%/$cols ) * $i; }
+            }
+
+            @for $i from 1 through $cols { // for each col to push
+                .container_12 .push_#{$bp}_#{$i}{ left: ( 100%/$cols ) * $i; }
+            }
+            @for $i from 1 through $cols { // for each col to pull
+                .container_12 .pull_#{$bp}_#{$i}{ left: -( 100%/$cols ) * $i; }
+            }
+
+            @for $i from 0 through $prefsufcols {
+                .container_12 .prefix_#{$bp}_#{$i} {@if $i == 0 {
+                        @include padding-left( $gutter / 2 );
+                    }
+                    @else {
+                        padding-left: ( 100%/$cols ) * $i;
+                    }}
+                .container_12 .suffix_#{$bp}_#{$i} {@if $i == 0 {
+                        @include padding-right( $gutter / 2 );
+                    }
+                    @else {
+                        padding-right: ( 100%/$cols ) * $i;
+                    }}
+            }
+        }
+
+    }
+}
+
+
+
+// Grid
+// ====================================
+
+
+
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+.container_12 {
+	width: 100%;
+	margin-left: 0%;
+	margin-right: 0%;
+}
+
+.row {
+    @include margin-left( -$gutter/2 );
+    @include margin-right( -$gutter/2 );
+}
+
+.alpha{ padding-left: 0; }
+.omega{ padding-right: 0; }
+
+
+%col{
+    display: inline;
+    float: left;
+    @include padding-left( $gutter/2 );
+    @include padding-right( $gutter/2 );
+    position: relative;
+}
+
+
+@include generate_grid();
+
+
+.clear{
+    overflow: hidden;
+    width: 50%;
+    clear: both;
+    visibility: hidden;
+    @include margin( $base-line-height, auto);
+}
+
+.clearfix::before,
+.row::before,
+.clearfix::after,
+.row::after {
+	content: ' ';
+	display: table;
+	visibility: hidden;
+    height: 0;
+}
+.clearfix::after,
+.row::after {
+    clear: both;
+}
+
+.clearfix {
+}
+
+html[xmlns] .clearfix {
+	display: block;
+}
+
+* html .clearfix {
+	height: 1%;
+    *zoom: 1;
+}

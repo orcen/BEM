@@ -1,0 +1,30 @@
+@function headings($from:1, $to:6, $parent:'') {
+    @if $from == $to {
+        @if $parent != '' {
+            @return $parent + ' h#{$from}';
+        }
+        @else {
+            @return 'h#{$from}';
+        }
+    } @else {
+        @if $parent != '' {
+            @return $parent + ' h#{$from},' + headings($from+1, $to, $parent);
+        }
+        @else {
+            @return 'h#{$from},' + headings($from+1, $to);
+        }
+    }
+}
+
+$inputTypes: text, email, range, checkbox, radio, number, file, password, search;
+@function input( $useTypes ) {    
+    $result: '';
+    @each $var in $inputTypes {
+
+        @if( index( $useTypes, $var ) ) {
+
+            $result: $result +  'input[type="#{$var}"],';
+        }
+    }
+    @return $result;
+}

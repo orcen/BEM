@@ -1,0 +1,91 @@
+// Article Module
+//
+//
+//
+//
+
+.article {
+    @extend %spacetobottom;
+
+    &-header{
+        @include padding( $base-line-height, 0 );
+        text-align: center;
+        color: $color-2;
+        border-bottom: 1px solid $color-5;
+        @include margin(0, $base-line-height * 2);
+
+        @include respond-from( l ) {
+            max-width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &-content {
+        @include margin-top( $base-line-height * 2 );
+    }
+
+    &-image{
+
+        a {
+            text-decoration: none;
+        }
+
+        @include margin-top( $base-line-height * 2 );
+        text-align: center;
+
+        @include respond-from( md ){
+            &.left {
+                float: left;
+                @include margin-right( $base-line-height );
+            }
+
+            &.right {
+                float: right;
+                @include margin-left( $base-line-height );
+            }
+        }
+
+    }
+    &-imagecol {
+        @include respond-from( md ){
+            &.left {
+                float: left;
+                @include margin-right( $base-line-height );
+            }
+
+            &.right {
+                float: right;
+                @include margin-left( $base-line-height );
+            }
+        }
+    }
+
+    &-icaption{
+        background-color: rgb(152, 191, 14);
+        color: rgb(255, 255, 255);
+        font-style: italic;
+        line-height: 1.2;
+        @include padding( 3px );
+    }
+
+    &-download {
+        list-style: outside none;
+        @include margin( $base-line-height, 0 );
+        padding: 0;
+
+        li {
+            @include margin-top( $base-line-height / 2 );
+        }
+
+        &link {
+            display: block;
+            text-decoration: none;
+        }
+        &description {
+            margin-top: 0;
+            @include padding-left( $base-line-height * 2 );
+        }
+    }
+
+}

@@ -1,0 +1,12 @@
+@function rem($size) {
+    @if( $size != 0 and $size != auto ) {
+        $remSize: $size / $base-font-size;
+        @return $remSize * 1rem;
+    }
+    @return $size;
+}
+
+/*@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}*/

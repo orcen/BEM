@@ -1,0 +1,14 @@
+
+@mixin transition ($delay:0, $duration:'', $property:'') {
+    @if($delay != 0 ) {
+        @include prefix((transition-duration: $delay));
+    }
+    @if($duration != '' ) {
+        @include prefix((transition-duration: $duration));
+    }
+    @if( $property != '' ) {
+        @include prefix((transition-property: $property));
+    }
+    @include prefix((transition-timing-function: cubic-bezier(0.55, 0.01, 0.11, 0.99)));
+
+}

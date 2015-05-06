@@ -1,0 +1,67 @@
+
+@include font-face( 'fontello', 'fonts/fontello/fontello','normal','normal',false,'87700081');
+
+
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-phone:before { content: '\e800' !important; } /* '' */
+.icon-print:before { content: '\e801' !important; } /* '' */
+.icon-email:before { content: '\e802' !important; } /* '' */
+.icon-menu:before { content: '\e803' !important; } /* '' */
+.icon-search:before { content: '\e804' !important; } /* '' */
+.icon-up-open-mini:before { content: '\e805' !important; } /* '' */
+.icon-right-open-mini:before { content: '\e806' !important; } /* '' */
+.icon-left-open-mini:before { content: '\e807' !important; } /* '' */
+.icon-down-open-mini:before { content: '\e808' !important; } /* '' */
+.icon-likes:before { content: '\e809' !important; } /* '' */
+.icon-comment:before { content: '\e80a' !important; } /* '' */
+.icon-gplus:before { content: '\e80b' !important; } /* '' */
+.icon-gplus-circled:before { content: '\e80c' !important; } /* '' */
+.icon-tumblr-circled:before { content: '\e80d' !important; } /* '' */
+.icon-link:before { content: '\e80e' !important; } /* '' */
+.icon-down-open-big:before { content: '\e80f' !important; } /* '' */
+.icon-left-open-big:before { content: '\e810' !important; } /* '' */
+.icon-right-open-big:before { content: '\e811' !important; } /* '' */
+.icon-up-open-big:before { content: '\e812' !important; } /* '' */
+.icon-impressum:before { content: '\e813' !important; } /* '' */
+.icon-facebook:before { content: '\e814' !important; } /* '' */
+.icon-star:before { content: '\e815' !important; } /* '' */
+.icon-star-empty:before { content: '\e816' !important; } /* '' */
+.icon-address:before { content: '\e817' !important; } /* '' */
+.icon-facebook-squared:before { content: '\e818' !important; } /* '' */
+.icon-facebook-circled:before { content: '\e819' !important; } /* '' */
+.icon-location:before { content: '\e81a' !important; } /* '' */
+.icon-direction:before { content: '\e81b' !important; } /* '' */
+.icon-cancel:before { content: '\e81c' !important; } /* '' */
+.icon-thumbs-down:before { content: '\e81d' !important; } /* '' */
+.icon-user:before { content: '\e81e' !important; } /* '' */

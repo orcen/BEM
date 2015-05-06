@@ -1,0 +1,103 @@
+//  Formular
+//
+//
+//
+//
+//
+//
+
+
+$text-color: $color-4;
+$background-color: $color-4;
+
+// Reset
+// ====================
+
+form {
+    @extend %reset;
+    border: 0;
+}
+fieldset {
+    @extend form;
+    padding: 2px 0;
+}
+
+label{
+    display: none;
+}
+
+button, input, select, textarea{
+    font-family: $font-arial;
+    font-size: $base-font-size;
+    color: $color-6;
+    border: 1px solid $color-5;
+    width: 100%;
+    background-color: rgba($color-4, .8);
+    @include margin( 0, 5px, 0, 0 );
+
+    @include placeholder {
+        display: none;
+        font-style: italic;
+        color: $color-6;
+        font-weight: 100;
+        text-align: center;
+    }
+}
+* + button, * + input, * + select, * + textarea {
+    margin-top: $base-line-height / 4;
+}
+
+
+textarea{
+    max-width: 100%;
+    @include height( $base-line-height * 5);
+}
+
+input[type="submit"]{
+    @extend .btn;
+    color: $text-color;
+    border-color: $text-color;
+    @include margin( $base-line-height / 2, 0, 0 );
+}
+
+
+
+// Search Form
+// ====================
+.search{
+    @include padding(0,0,0,10px);
+    white-space: nowrap;
+
+    .search-field{
+        width: auto;
+    }
+
+    .search-btn {
+        @extend .btn;
+        @include size(21px, 0);
+        @include padding(22px,0,0);
+        @include margin(0);
+        display: inline-block;
+        color: $color-5;
+        position: relative;
+        overflow: hidden;
+        border: 0;
+
+
+        &::before{
+            @include centerH( 21px );
+            @include font-size(20px);
+            top: 1px;
+        }
+    }
+}
+
+// RexForm
+// ====================
+
+.b__form-fieldwrap{
+    position: relative;
+}
+.b__form-fieldwrap + .b__form-fieldwrap{
+    @include margin-top( $base-line-height / 2);
+}

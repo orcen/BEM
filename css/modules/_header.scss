@@ -1,0 +1,50 @@
+.header {
+    position: relative;
+
+
+    .inner {
+        @extend %inner_wrap;
+        @include height( 260px );
+        background-repeat: no-repeat;
+        background-position: center top;
+        @include respond-from( md ) {
+            @include height( 460px );
+            border-bottom: 5px solid $color-1;
+            background-position: center bottom;
+        }
+    }
+
+    &-logo{
+
+        @include absolute( 0, 10px );
+        @include size( 110px );
+        @include padding(5px);
+        background-color: $color-1;
+        text-align: center;
+        @include prefix( (box-shadow: 0 0 10px $color-6) );
+
+        @include respond-from( sm ){
+            @include size(220px);
+
+        }
+        @include respond-from( l ){
+            @include centerH( 220px ); // puts the width in px and rem
+        }
+    }
+        &-logoimage{
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            width: auto;
+        }
+
+        .subheader {
+            display: none;
+            @include background-opacity( $color-4, 0.85);
+            padding: 4px;
+
+            @include respond-from( md ){
+                display: block;
+            }
+        }
+}

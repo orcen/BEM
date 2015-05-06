@@ -1,0 +1,161 @@
+@mixin center($width, $height : $width) {
+    $remWidth: calculateRem($width);
+    $remHeight: calculateRem($height);
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: $height;
+    height: $remHeight;
+    width: $width;
+    width: $remWidth;
+    margin-left: - $width / 2;
+    margin-left: - $remWidth / 2;
+    margin-top: - $height / 2;
+    margin-top: - $remHeight / 2;
+}
+
+@mixin centerH($width) {
+    $remWidth: calculateRem($width);
+
+    position: absolute;
+    left: 50%;
+    width: $width;
+    width: $remWidth;
+    margin-left: - $width / 2;
+    margin-left: - $remWidth / 2;
+}
+@mixin centerV($height) {
+    $remHeight: calculateRem($height);
+
+    position: absolute;
+    top: 50%;
+    height: $height;
+    height: $remHeight;
+    margin-top: - $height / 2;
+    margin-top: - $remHeight / 2;
+}
+
+@mixin absolute($top, $left, $bottom: 'auto', $right: 'auto', $zindex: 'auto' ){
+    position: absolute;
+    @if( $top != 'auto' ) {
+        top: $top;
+        @if( $top != 0) {
+            $topRem: calculateRem($top);
+            top: $topRem;
+        }
+    }
+    @if( $left != 'auto' ) {
+        left: $left;
+        @if( $left != 0) {
+            $leftRem: calculateRem($left);
+            left: $leftRem;
+        }
+    }
+    @if( $right != 'auto' ) {
+        right: $right;
+        @if( $right != 0 ){
+            $rightRem: calculateRem($right);
+            right: $rightRem;
+        }
+    }
+    @if( $bottom != 'auto' ) {
+        bottom: $bottom;
+        @if($bottom != 0){
+            $bottomRem: calculateRem($bottom);
+            bottom: $bottomRem;
+        }
+    }
+    @if( $zindex != 'auto' ) {
+        z-index: $zindex;
+    }
+
+}
+@mixin relative($top, $left, $right: 'auto', $bottom: 'auto', $zindex: 'auto' ){
+
+    $topRem: calculateRem($top);
+    $leftRem: calculateRem($left);
+
+    position: relative;
+    top: $top; top: $topRem;
+    left: $left; left: $leftRem;
+    if( $right != 'auto' ) {
+        $rightRem: calculateRem($right);
+        right: $right; right: $rightRem;
+    }
+    if( $bottom != 'auto' ) {
+        $bottomRem: calculateRem($bottom);
+        bottom: $bottom; bottom: $bottomRem;
+    }
+    if( $zindex != 'auto' ) {
+        z-index: $zindex;
+    }
+
+}
+
+@mixin margin( $top , $right : $top, $bottom : $top, $left : $right ) {
+    margin: $top $right $bottom $left;
+    margin: calculateRem( $top )  calculateRem( $right )  calculateRem( $bottom ) calculateRem( $left );
+}
+
+@mixin margin-top( $top ) {
+    margin-top: $top;
+    @if( $top != 0 And $top != auto ){
+        margin-top: calculateRem( $top );
+    }
+}
+
+@mixin margin-right( $right ) {
+    margin-right: $right;
+    @if( $right != 0 And $right != auto ){
+        margin-right: calculateRem( $right );
+    }
+}
+
+@mixin margin-bottom( $bottom ) {
+    margin-bottom: $bottom;
+    @if( $bottom != 0 And $bottom != auto ){
+        margin-bottom: calculateRem( $bottom );
+    }
+}
+
+@mixin margin-left( $left ) {
+    margin-left: $left;
+    @if( $left != 0 And $left != auto ){
+        margin-left: calculateRem( $left );
+    }
+}
+
+@mixin padding( $top , $right : $top, $bottom : $top, $left : $right ) {
+    padding: $top $right $bottom $left;
+    padding: calculateRem( $top )  calculateRem( $right )  calculateRem( $bottom ) calculateRem( $left );
+}
+
+@mixin padding-top( $top ) {
+    padding-top: $top;
+    @if( $top != 0 And $top != auto ){
+        padding-top: calculateRem( $top );
+    }
+}
+
+@mixin padding-right( $right ) {
+    padding-right: $right;
+    @if( $right != 0 And $right != auto ){
+        padding-right: calculateRem( $right );
+    }
+}
+
+@mixin padding-bottom( $bottom ) {
+    padding-bottom: $bottom;
+    @if( $bottom != 0 And $bottom != auto ){
+        padding-bottom: calculateRem( $bottom );
+    }
+}
+
+@mixin padding-left( $left ) {
+    padding-left: $left;
+    @if( $left != 0 And $left != auto ){
+        padding-left: calculateRem( $left );
+    }
+}
+

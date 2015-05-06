@@ -1,0 +1,441 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Formular</title>
+
+        <style>
+        * {
+          box-sizing: border-box;
+        }
+            .wrap {
+                width: 1000px;
+                margin: 50px auto;
+            }
+            hr {
+              clear: both;
+              border: 0;
+            }
+            h4{
+              float: left;
+              width: 100%;
+
+            }
+            small{
+              
+            }
+
+            form, fieldset {
+              border: 0; }
+
+
+            fieldset {
+              padding: 1rem 2rem; 
+              border-style: solid;
+              border-width: 1px 0 0;
+            }
+            
+            fieldset + fieldset {
+              margin-top: 1.5rem;
+
+            }
+            legend{
+              display: block;
+              position: static;
+              margin-left: 1rem;
+              padding: 0px 1rem; 
+            }
+            label { 
+            display: block;
+            }
+            label small{
+              opacity: 0.8;
+            }
+
+            button, input, select, textarea {
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 15px;
+              color: #333333;
+              border: 1px solid #BBBBBB;
+              max-width: 100%;
+              background-color: rgba(255, 255, 255, 0.8);
+              margin: 0 5px 0 0;
+              margin: 0 0.33333rem 0 0; 
+            vertical-align: middle;
+            }
+
+
+            button:disabled, input:disabled, select:disabled, textarea:disabled {
+                background-color: #CCC;
+            }
+
+            textarea {
+              max-width: 100%;
+              height: 110px; 
+            }
+
+            .form-fw {
+              margin-bottom: 0.5rem;
+            }
+
+            .form-field{
+
+            }
+              .form-field.input{
+                width: 12rem;
+              }
+
+
+
+              .form-field:disabled,
+              .form-field[disabled]{
+                padding-left: 1.2rem;
+                background-repeat: no-repeat;
+                background-position: 0.125rem 0.2em;
+                background-size: auto 0.75rem;
+                background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxvY2siIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyMCAyMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjAgMjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBkPSJNMTUuOCw4SDE0VjUuNkMxNCwyLjcwMywxMi42NjUsMSwxMCwxQzcuMzM0LDEsNiwyLjcwMyw2LDUuNlY4SDRDMy40NDcsOCwzLDguNjQ2LDMsOS4xOTlWMTcKCWMwLDAuNTQ5LDAuNDI4LDEuMTM5LDAuOTUxLDEuMzA3bDEuMTk3LDAuMzg3QzUuNjcyLDE4Ljg2MSw2LjU1LDE5LDcuMSwxOUgxMi45YzAuNTQ5LDAsMS40MjgtMC4xMzksMS45NTEtMC4zMDdsMS4xOTYtMC4zODcKCUMxNi41NzEsMTguMTM5LDE3LDE3LjU0OSwxNywxN1Y5LjE5OUMxNyw4LjY0NiwxNi4zNTIsOCwxNS44LDh6IE0xMiw4SDhWNS4xOTlDOCwzLjc1NCw4Ljc5NywzLDEwLDNjMS4yMDMsMCwyLDAuNzU0LDIsMi4xOTlWOHoiLz4KPC9zdmc+');
+              }
+              .form-field[readonly]{
+                padding-left: 1.2rem;
+                background-repeat: no-repeat;
+                background-position: 0.125rem 0.2em;
+                background-size: auto 0.75rem;
+                background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkV5ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDIwIDIwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyMCAyMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxwYXRoIGQ9Ik0xMCw0LjRDMy40MzksNC40LDAsOS4yMzIsMCwxMGMwLDAuNzY2LDMuNDM5LDUuNiwxMCw1LjZjNi41NiwwLDEwLTQuODM0LDEwLTUuNkMyMCw5LjIzMiwxNi41Niw0LjQsMTAsNC40eiBNMTAsMTQuMzA3CgljLTIuNDU1LDAtNC40NDUtMS45MjgtNC40NDUtNC4zMDdjMC0yLjM3OSwxLjk5LTQuMzA5LDQuNDQ1LTQuMzA5YzIuNDU1LDAsNC40NDQsMS45Myw0LjQ0NCw0LjMwOQoJQzE0LjQ0NCwxMi4zNzksMTIuNDU1LDE0LjMwNywxMCwxNC4zMDd6IE0xMCwxMGMtMC40MDctMC40NDcsMC42NjMtMi4xNTQsMC0yLjE1NGMtMS4yMjgsMC0yLjIyMywwLjk2NS0yLjIyMywyLjE1NAoJYzAsMS4xODksMC45OTUsMi4xNTQsMi4yMjMsMi4xNTRjMS4yMjcsMCwyLjIyMy0wLjk2NSwyLjIyMy0yLjE1NEMxMi4yMjMsOS40NTMsMTAuMzQ2LDEwLjM3OSwxMCwxMHoiLz4KPC9zdmc+');
+              }
+              .form-field.is-longtext:hover,
+              .form-field.is-longtext:focus{
+                text-indent: -99em;
+                transition: text-indent 25s linear;
+              }
+
+              .form-field.input[type="radio"],
+              .form-field.input[type="checkbox"]{
+                width: auto;
+              }
+
+              .form-field.select{
+                width: 15em;
+              }
+
+              .form-field:required,
+              .form-field[required]{
+                border-color: #ADADFE;
+              }
+              .form-field:invalid{
+                border-color: red;
+              }
+
+              .form-field.textarea.no-resizable{
+                resize: none;
+              }
+              
+              label.invalid{
+                color: red;
+                position: relative;
+              }
+              label.invalid::before{
+                content: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjEuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9Ildhcm5pbmciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAyMCAyMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjAgMjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBmaWxsPSIjRjAwIiBkPSJNMTkuNTExLDE3Ljk4TDEwLjYwNCwxLjM0OEMxMC40OCwxLjEzMywxMC4yNSwxLDEwLDFDOS43NDksMSw5LjUxOSwxLjEzMyw5LjM5NiwxLjM0OEwwLjQ5LDE3Ljk4CgljLTAuMTIxLDAuMjExLTAuMTE5LDAuNDcxLDAuMDA1LDAuNjhDMC42MiwxOC44NzEsMC44NDcsMTksMS4wOTMsMTloMTcuODE0YzAuMjQ1LDAsMC40NzQtMC4xMjksMC41OTgtMC4zNAoJQzE5LjYyOSwxOC40NTEsMTkuNjMxLDE4LjE5MSwxOS41MTEsMTcuOTh6IE0xMSwxN0g5di0yaDJWMTd6IE0xMSwxMy41SDlWN2gyVjEzLjV6Ii8+Cjwvc3ZnPg==');
+                height: 0.8em;
+                width: 0.8em;
+                left: -1em;
+                position: absolute;              
+                color: red;
+              }
+
+              button,
+              [type="submit"],
+              [type="button"] {
+                cursor: pointer;
+              }
+
+              [type="submit"]:hover,
+              [type="button"]:hover {
+                background-color: #999;
+                color: #EEE;
+              }
+
+              [type="submit"]:active,
+              [type="button"]:active {
+                
+              }
+
+
+            .col_2 {
+              float: left;
+              width: 50%;
+            }
+            .col_3{
+              float: left;
+              width: 33%;
+            }
+            .col_4 {
+              float: left;
+              width: 25%;
+            }
+
+            .cl{
+              clear: both;
+            }
+
+            .left{
+              float: left;
+            }
+            .right{
+              float: right;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="wrap">
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Inputs</legend>
+
+                    <h4 class="cl">Text Input Choice</h4>
+
+                     <div class="form-fw col_3 input">
+                        <label for="name">Text Input:</label>
+                        <input class="form-field input" type="text" name="name" id="name" value="Sample Text" />
+                     </div>
+
+                     <div class="form-fw col_3 input">
+                        <label for="name">Text Input <small>(disabled)</small>:</label>
+                        <input class="form-field input" type="text" name="name" id="name" value="Sample Text" disabled />
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Text Input <small>(readonly)</small>:</label>
+                        <input class="form-field input" type="text" name="name" id="name" value="Sample Text" readonly />
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Text Input <small>(readonly)</small>:</label>
+                        <input class="form-field input is-longtext" type="text" name="name" id="name" value="Sample Text extra Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut" readonly />
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Text Input <small>(required, valid)</small>:</label>
+                        <input class="form-field input" type="text" name="name" id="name" value="Sample Text" required />
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Text Input <small>(required, invalid)</small>:</label>
+                        <input class="form-field input" type="text" name="name" id="name" value="" required minlength="" />
+                    </div>
+
+                    <h4 class="cl">Email Input Choice</h4>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Email Input:</label>
+                        <input class="form-field input" type="email" name="name" id="name" value="sample@text.txt" />
+                     </div>
+
+                     <div class="form-fw col_3 input">
+                        <label for="name">Email Input <small>(disabled)</small>:</label>
+                        <input class="form-field input" type="email" name="name" id="name" value="sample@text.txt" disabled />
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Email Input <small>(readonly)</small>:</label>
+                        <input class="form-field input" type="email" name="name" id="name" value="sample@text.txt" readonly />
+                    </div>
+
+                    <h4 class="cl">Password Input Choice</h4>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Password Input:</label>
+                        <input class="form-field input" type="Password" name="name" id="name" value="sample@text.txt" />
+                     </div>
+
+                     <div class="form-fw col_3 input">
+                        <label for="name">Password Input <small>(disabled)</small>:</label>
+                        <input class="form-field input" type="Password" name="name" id="name" value="sample@text.txt" disabled />
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Password Input <small>(required)</small>:</label>
+                        <input class="form-field input" type="Password" name="name" id="name" value="sample@text.txt" required />
+                    </div>
+
+                    <h4 class="cl">Number Input Choice</h4>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Number Input:</label>
+                        <input class="form-field input" type="Number" name="name" id="name" value="25" min="0" max="100" step="5" />
+                     </div>
+
+                     <div class="form-fw col_3 input">
+                        <label for="name">Number Input <small>(disabled)</small>:</label>
+                        <input class="form-field input" type="Number" name="name" id="name" value="25" min="0" max="100" step="5" disabled />
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Number Input <small>(readonly)</small>:</label>
+                        <input class="form-field input" type="Number" name="name" id="name" value="25" min="0" max="100" step="5" readonly />
+                    </div>
+
+                    <h4 class="cl">Range Input Choice</h4>
+
+                    <div class="form-fw col_3 input">
+                        <label for="name">Range Input:</label>
+                        <input class="form-field input" type="Range" name="name" id="name" value="sample@text.txt" />
+                     </div>
+
+                     <div class="form-fw col_3 input">
+                        <label for="name">Range Input <small>(disabled)</small>:</label>
+                        <input class="form-field input" type="Range" name="name" id="name" value="sample@text.txt" disabled />
+                    </div>
+
+                     <h4 class="cl">Radio Button Choice</h4>
+
+                     <div class="form-fw col_3 input">
+                      <label for="radio-choice-1">
+                        <input class="form-field input" type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" /> 
+                        Choice 1
+                      </label>                          
+                      </div>
+
+            		    <div class="form-fw col_3 input">
+                        <label for="radio-choice-2">
+                          <input class="form-field input" type="radio" name="radio-choice" id="radio-choice-2" value="choice-2" checked /> 
+                          Choice 2
+                        </label>                        
+                    </div>
+
+                     <div class="form-fw col_3 input">
+                        <label for="radio-choice-3">
+                          <input class="form-field input" type="radio" name="radio-choice" id="radio-choice-3" value="choice-3" disabled /> 
+                          Choice 3
+                        </label>                        
+                    </div>
+
+                  <h4 class="cl">Checkbox Choice</h4>
+                  <div class="form-fw col_3 input">
+                        <label for="checkbox1"><input class="form-field input" type="checkbox" name="checkbox" id="checkbox1" />Checkbox:</label>
+                        
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="checkbox2"><input class="form-field input" type="checkbox" name="checkbox" id="checkbox2" checked />Checkbox <small>(checked)</small>:</label>
+                        
+                    </div>
+
+                    <div class="form-fw col_3 input">
+                        <label for="checkbox3"><input class="form-field input" type="checkbox" name="checkbox" id="checkbox3" disabled /> Checkbox <small>(disabled)</small>:</label>
+                                                                               
+                    </div>
+
+                </fieldset>
+
+            	<fieldset>
+                <legend>Dropdowns</legend>
+                
+            		<div class="form-fw col_3 select">
+                    <label for="select-choice">Select Dropdown Choice:</label>
+                    <select class="form-field select" name="select-choice1" >
+                        <option value="Choice 1">Choice 1</option>
+                        <option value="Choice 2">Choice 2</option>
+                        <option value="Choice 3">Choice 3</option>
+                        <optgroup label="Options Group 1">
+                          <option>group choice 1</option>
+                          <option>group choice 2</option>
+                          <option>group choice 3</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-fw col_3 select">
+                    <label for="select-choice">Select Dropdown Choice:</label>
+                    <select class="form-field select" name="select-choice2"  disabled>
+                        <option value="Choice 1">Choice 1</option>
+                        <option value="Choice 2">Choice 2</option>
+                        <option value="Choice 3">Choice 3</option>
+                        <optgroup label="Options Group 1">
+                          <option>group choice 1</option>
+                          <option>group choice 2</option>
+                          <option>group choice 3</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="cl"></div>
+
+                <div class="form-fw col_3 select">
+                    <label for="select-choice">Select Dropdown Choice:</label>
+                    <select class="form-field select" name="select-choice2" size="5">
+                        <option value="Choice 1">Choice 1</option>
+                        <option value="Choice 2">Choice 2</option>
+                        <option value="Choice 3">Choice 3</option>
+                        <optgroup label="Options Group 1">
+                          <option>group choice 1</option>
+                          <option>group choice 2</option>
+                          <option>group choice 3</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-fw col_3 select">
+                    <label for="select-choice">Select Dropdown Choice:</label>
+                    <select class="form-field select" name="select-choice2" size="5" disabled>
+                        <option value="Choice 1">Choice 1</option>
+                        <option value="Choice 2">Choice 2</option>
+                        <option value="Choice 3">Choice 3</option>
+                        <optgroup label="Options Group 1">
+                          <option>group choice 1</option>
+                          <option>group choice 2</option>
+                          <option>group choice 3</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+
+            	</fieldset>
+
+            	<fieldset>
+                  <legend>Textarea</legend>
+
+            		  <div class="form-fw col_2">
+                    <label for="textarea">Textarea:</label>
+                    <textarea cols="40" rows="8" name="textarea" id="textarea">Sample Text</textarea>
+                  </div>
+
+                  <div class="form-fw col_2">
+                    <label for="textarea">Textarea <small>(no-resizable)</small>:</label>
+                    <textarea cols="40" class="form-field textarea no-resizable" rows="8" name="textarea2" id="textarea2">Sample Text</textarea>
+                  </div>
+
+                  <div class="form-fw col_2">
+                    <label for="textarea">Textarea <small>(disabled)</small>:</label>
+                    <textarea cols="40" class="form-field textarea" rows="8" name="textarea3" id="textarea3" disabled >Sample Text</textarea>
+                  </div>
+
+                  <div class="form-fw col_2">
+                    <label for="textarea">Textarea <small>(readonly)</small>:</label>
+                    <textarea cols="40" class="form-field textarea" rows="8" name="textarea3" id="textarea3" readonly >Sample Text</textarea>
+                  </div>
+
+
+            	</fieldset>
+
+            	
+
+            	<fieldset>
+                <legend>Controls</legend>
+                  <button type="button" class="right">Button</button>            	    
+                  <button type="submit" class="right">Submit Button</button>
+                  <input type="submit" class="right" value="Submit Input" />
+
+                  <button type="reset" class="left" title="Reset all form changes">Reset</button>
+                </fieldset>
+            </form>
+
+        </div>
+
+        <script src="form.js" charset="utf-8" type="text/javascript"></script>
+
+    </body>
+</html>

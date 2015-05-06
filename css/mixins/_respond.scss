@@ -1,0 +1,55 @@
+@mixin respond-to($media) {
+  @if $media == retina-mode {
+    @media screen and (-webkit-min-device-pixel-ratio: 2) { @content }
+  }
+  @else if $media == sm {
+    @media screen and (max-width: $sm) { @content }
+  }
+  @else if $media == md {
+    @media screen and (max-width: $md) { @content }
+  }
+  @else if $media == l {
+    @media screen and (max-width: $l) { @content }
+  }
+  @else if $media == xl {
+    @media screen and (max-width: $xl) { @content }
+  }
+}
+
+@mixin respond-from( $media ) {
+  @if $media == xs {
+     @content;
+  }
+  @else if $media == sm {
+    @media screen and (min-width: $sm) { @content }
+  }
+  @else if $media ==md {
+    @media screen and (min-width: $md) { @content }
+  }
+  @else if $media == l {
+    @media screen and (min-width: $l) { @content }
+  }
+  @else if $media == xl {
+    @media screen and (min-width: $xl) { @content }
+  }
+
+}
+
+// testovaci hlaska pro mediaqueries
+// ====================================
+
+@mixin debugmessage($message, $color: rgba(255,255,0, 0.7), $color_text: #000000 ){
+  &::before{
+    content: $message; background: #{$color}; color: #{$color_text};
+    font-family: Arial; font-weight: bold; display: block; text-align: center; height: 30px; line-height: 30px;
+    position: absolute; right: 0; left: 0; top: 0; z-index: 999;
+  }
+}
+
+@mixin debugmessage2($message, $color: rgba(255,255,0, 0.5), $color_text: #000000 ){
+  &::after{
+    content: $message; background: #{$color}; color: #{$color_text};
+    font-family: Arial; font-weight: bold; display: block; text-align: center; height: 30px; line-height: 30px;
+    position: absolute; right: 0; left: 0; top: 35px; z-index: 999;
+  }
+}

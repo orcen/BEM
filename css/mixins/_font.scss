@@ -1,0 +1,20 @@
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false, $param: '' ) {
+    @font-face {
+        font-family: $font-family;
+        font-weight: $weight;
+        font-style: $style;
+        @if $asset-pipeline == true {
+            src: font-url('#{$file-path}.eot#{'?'+$param}');
+            src: font-url('#{$file-path}.eot?#{$param}#iefix') format('embedded-opentype'),
+            font-url('#{$file-path}.woff#{'?'+$param}') format('woff'),
+            font-url('#{$file-path}.ttf#{'?'+$param}') format('truetype'),
+            font-url('#{$file-path}.svg#{'?'+$param}##{$font-family}') format('svg');
+        } @else {
+            src: url('#{$file-path}.eot#{'?'+$param}');
+            src: url('#{$file-path}.eot?#{$param}#iefix') format('embedded-opentype'),
+            url('#{$file-path}.woff#{'?'+$param}') format('woff'),
+            url('#{$file-path}.ttf#{'?'+$param}}') format('truetype'),
+            url('#{$file-path}.svg#{'?'+$param}##{$font-family}') format('svg');
+        }
+    }
+}

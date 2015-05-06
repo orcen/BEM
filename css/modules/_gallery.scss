@@ -1,0 +1,51 @@
+// Galery
+// ====================
+
+.gallery{
+    @extend %spacetobottom;
+    text-align: center;
+    &-heading{
+        @extend .article-header;
+        @include margin(0, auto, 32px);
+    }
+
+    &-item{
+        margin: 0;
+        border: 5pxi solid transparent;
+        width: 50%;
+        @include respond-from(md){ width: 33.333%; }
+
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+
+        &:hover .gallery-image{
+            transform: translateY(100%) translateX(100%) scale(0);
+            @include transition(0,0.35s);
+        }
+
+    }
+        &-link{
+            display: block;
+        }
+
+        &-image{
+            max-width: 100%;
+            height: auto;
+            @include transition(0,0.3s, transform);
+        }
+
+        &-caption{
+            @include absolute( 0, 0, 0, 0, -1 );
+            @include padding( $base-line-height / 4 );
+            background-color: $color-3;
+            color: $color-4;
+            text-decoration: none;
+            line-height: 1.25;
+            @include font-size( $small-font-size );
+
+            &:first-line{
+                font-weight: bold;
+            }
+        }
+}

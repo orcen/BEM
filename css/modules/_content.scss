@@ -1,0 +1,7 @@
+.content {
+    @include padding(25px, 0);
+
+    .inner{
+        @extend %inner_wrap;
+    }
+}

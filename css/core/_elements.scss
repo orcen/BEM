@@ -1,0 +1,134 @@
+/* HTML elementy
+// ==================================== */
+
+* {
+    @include prefix((box-sizing: border-box) );
+    @include prefix_inner((image-rendering: crisp-edges) );
+}
+html, body{
+    height: 100%;
+    font-size: $base-font-size;
+}
+html{
+    @include prefix( (text-size-adjust: 100%), 'webkit ms' );
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    line-height: $base-line-height / $base-font-size;
+    font-family: 'Philosopher', sans-serif;
+    color: $color-6;
+}
+
+ul, ol{
+    @include cf;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+ul {
+    list-style: outside disc url();
+    padding-left: $base-font-size;
+}
+li{
+    background-repeat: no-repeat;
+    background-position: 0 center;
+}
+p{
+    margin: 0;
+    padding: 0;
+    img{
+        vertical-align: middle;
+    }
+    * + & {
+        @include margin-top( $base-line-height );
+    }
+
+    a {
+        color: $color-2;
+        text-decoration: underline;
+        text-decoration-style: dotted;
+    }
+}
+#{headings(1,5)} {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1;
+}
+#{headings(1,5, '* +')} {
+    margin-top: 1em;
+}
+
+h1{
+    @include font-size(40px);
+}
+h2{
+    @include font-size(30px);
+}
+h3{
+    @include font-size(20px);
+}
+h4{
+    @include font-size(18px);
+}
+h5{
+    @include font-size(15px);
+    font-weight: bold;
+}
+
+*:focus{
+    outline: none;
+}
+a{
+    text-decoration: underline;
+    color: currentColor;
+    &:hover{
+        text-decoration: none;
+    }
+    &:active {
+
+    }
+    &:link {
+
+    }
+    &:visited {
+        text-decoration: line-through;
+    }
+    img{
+        border: 0px;
+    }
+    figcaption{
+        text-decoration: none;
+    }
+}
+img{
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+figure{
+    margin: 0;
+    max-width: 100%;
+    height: auto;
+}
+figcaption {
+
+}
+
+label{
+    cursor: pointer;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+        th, td{
+            text-align: left;
+        }
+}
+
+iframe {
+    max-width: 100%;
+}
